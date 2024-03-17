@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>To-Do List</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #47c2d5;
+  }
+  .container {
+    max-width: 1000px;
+    margin: 100px auto;
+    background-color:rgb(255, 252, 252);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  h2 {
+    text-align: center;
+  }
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  li {
+    margin-bottom: 50px;
+  }
+  .input-field {
+    display: flex;
+  }
+  .input-field input[type="text"] {
+    flex: 1;
+    padding: 8px;
+    font-size: 16px;
+    border-radius: 5px 0 0 5px;
+    border: 1px solid #ccc;
+  }
+  .input-field button {
+    padding: 8px 15px;
+    font-size: 16px;
+    border: none;
+    background-color: #4caf50;
+    color: #fff;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h2>To-Do List</h2>
+  <div class="input-field">
+    <input type="text" id="taskInput" placeholder="Enter task...">
+    <button onclick="addTask()">Add Task</button>
+  </div>
+  <ul id="taskList"></ul>
+</div>
+
+<script>
+function addTask() {
+  var input = document.getElementById("taskInput");
+  var task = input.value.trim();
+  if (task !== "") {
+    var list = document.getElementById("taskList");
+    var listItem = document.createElement("li");
+    listItem.textContent = task;
+    list.appendChild(listItem);
+    input.value = "";
+  } else {
+    alert("Please enter a task!");
+  }
+}
+</script>
+
+</body>
+</html>
